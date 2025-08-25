@@ -28,26 +28,28 @@ int main(int argc, char **argv) {
   }
 
   uint16_t row = 1;
-  while ((unsigned)argc > curr_index) {
-    FILE *file = fopen(argv[curr_index++], "r");
+  for (; (unsigned)argc > curr_index; ++curr_index) {
+    while ((unsigned)argc > curr_index) {
+      FILE *file = fopen(argv[curr_index++], "r");
 
-    if (file == NULL) {
-      perror("cat: fopen");
-      return 1;
-    }
+      if (file == NULL) {
+        perror("cat: fopen");
+        return 1;
+      }
 
-    char c;
-    if (IS_SET(flag, NUMBER_LINE))
-      printf("%*d ", 5, row++);
-
-    while ((c = fgetc(file)) != EOF) {
-      putchar(c);
-      if (IS_SET(flag, NUMBER_LINE) && c == '\n')
+      char c;
+      if (IS_SET(flag, NUMBER_LINE))
         printf("%*d ", 5, row++);
-    }
 
-    putchar('\n');
-    fclose(file);
+      while ((c = fgetc(file)) != EOF) {
+        putchar(c);
+        if (IS_SET(flag, NUMBER_LINE) && c == '\n')
+          printf("%*d ", 5, row++);
+      }
+
+      putchar('\n');
+      fclose(file);
+    }
+    return 0;
   }
-  return 0;
 }
