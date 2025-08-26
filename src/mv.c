@@ -8,7 +8,7 @@
 
 int main(int argc, char **argv) {
   if (argc < 2) {
-    fprintf(stderr, "Usage: touch [flags] [file]\n");
+    fprintf(stderr, "Usage: rm [flags] [file]\n");
     return 1;
   }
 
@@ -22,13 +22,6 @@ int main(int argc, char **argv) {
     }
   }
 
-  umask(0000);
-  for (; curr_index < (unsigned)argc; ++curr_index) {
-    int fdes = creat(argv[curr_index], DEFAULT_MASK);
-    if (fdes == -1) {
-      perror("create");
-      return 1;
-    }
-  }
+  rename(argv[curr_index], argv[curr_index + 1]);
   return 0;
 }
