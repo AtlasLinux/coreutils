@@ -3,6 +3,7 @@ SRC_DIR := src
 BUILD_DIR := build
 
 CC := gcc
+CFLAGS := -static
 
 # Find all .c source files in SRC_DIR
 SRCS := $(wildcard $(SRC_DIR)/*.c)
