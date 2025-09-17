@@ -33,7 +33,7 @@ void out_sorted() {
     for (int i = 32; i < 256; i++) {
         for (size_t b = 0; b < count; b++) {
             if ((unsigned char)entries[b][0] == i) {
-                printf("%s\n", entries[b]);
+                printf("%s\t", entries[b]);
             }
         }
     }
