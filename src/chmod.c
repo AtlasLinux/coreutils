@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[]) {
     if (argc != 3) {
-        fprintf(stderr, "Usage: %s <mode> <file>\n", argv[0]);
+        fprintf(stderr, "Usage: %s [mode] [file]\n", argv[0]);
         return 1;
     }
 

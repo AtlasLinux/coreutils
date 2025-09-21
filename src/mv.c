@@ -8,7 +8,7 @@
 
 int main(int argc, char **argv) {
   if (argc < 2) {
-    fprintf(stderr, "Usage: rm [flags] [file]\n");
+    fprintf(stderr, "Usage: mv [flags] [file]\n");
     return 1;
   }
 
